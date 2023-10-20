@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "plugin": {
+    "pattern": ".so",
+    "folder": "."
+  },
+  "endpoints": [
+    {
+      "endpoint": "/test/{id}",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8080"
+          ],
+          "url_pattern": "/__health"
+        }
+      ]
+    }
+  ],
+  "extra_config": {
+    "plugin/http-server": {
+      "name": ["api-key-plugin"],
+      "api-key-plugin": {
+        "path": "/hijack-me"
+      }
+    }
+  }
+}
